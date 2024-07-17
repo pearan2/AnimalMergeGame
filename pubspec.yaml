@@ -1,0 +1,31 @@
+name: animal_merge_game
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.1+2
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  characters: ^1.3.0
+  flame: ^1.18.0
+  flame_forge2d: ^0.18.1
+  xml: ^6.5.0
+  flame_audio: ^2.10.2
+  google_fonts: ^6.2.1
+  audioplayers: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - assets/images/animals/
+    - assets/audio/
