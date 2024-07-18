@@ -50,7 +50,7 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
       images.load('coin.png'),
       images.load('background.jpg'),
     ].wait;
-    await FlameAudio.audioCache.load('merge.wav');
+    // await FlameAudio.audioCache.load('merge.wav');
     camera = CameraComponent.withFixedResolution(width: size.x, height: size.y);
     camera.viewfinder.zoom = worldZoomLevel;
     camera.viewfinder.anchor = Anchor.center;
@@ -100,11 +100,11 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
   }
 
   Future<void> playAnimalMergeSound() async {
-    if (numberOfMergeSoundEffectPlayings < 3) {
-      FlameAudio.play('merge.wav')
-          .then((_) => numberOfMergeSoundEffectPlayings--);
-      numberOfMergeSoundEffectPlayings++;
-    }
+    // if (numberOfMergeSoundEffectPlayings < 3) {
+    //   FlameAudio.play('merge.wav')
+    //       .then((_) => numberOfMergeSoundEffectPlayings--);
+    //   numberOfMergeSoundEffectPlayings++;
+    // }
   }
 
   void pickNextAnimal() {
