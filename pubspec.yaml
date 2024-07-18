@@ -1,7 +1,7 @@
 name: animal_merge_game
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.0.1+2
+version: 1.0.3+4
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -15,7 +15,6 @@ dependencies:
   xml: ^6.5.0
   flame_audio: ^2.10.2
   google_fonts: ^6.2.1
-  audioplayers: ^6.0.0
 
 dev_dependencies:
   flutter_test:
