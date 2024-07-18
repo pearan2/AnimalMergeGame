@@ -1,27 +1,9 @@
 import 'package:animal_merge_game/components/game.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  final AudioContext audioContext = AudioContext(
-    iOS: AudioContextIOS(
-      category: AVAudioSessionCategory.ambient,
-      options: const {
-        AVAudioSessionOptions.defaultToSpeaker,
-        AVAudioSessionOptions.mixWithOthers,
-      },
-    ),
-    android: const AudioContextAndroid(
-      isSpeakerphoneOn: true,
-      stayAwake: true,
-      contentType: AndroidContentType.sonification,
-      usageType: AndroidUsageType.assistanceSonification,
-      audioFocus: AndroidAudioFocus.none,
-    ),
-  );
-  AudioPlayer.global.setAudioContext(audioContext);
   runApp(
     const MaterialApp(
       home: GameWrapper(),

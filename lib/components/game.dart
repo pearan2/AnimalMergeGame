@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animal_merge_game/audio/audio_helper.dart';
 import 'package:animal_merge_game/components/animal.dart';
 import 'package:animal_merge_game/components/background.dart';
 import 'package:animal_merge_game/components/game_over_line.dart';
@@ -8,7 +9,6 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/extensions.dart';
 
-import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_forge2d/forge2d_game.dart';
 import 'package:flutter/material.dart' as mt;
 import 'package:flutter/services.dart';
@@ -35,6 +35,7 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
   final mt.ValueNotifier<AnimalType> nextAnimalType =
       mt.ValueNotifier(AnimalType.random);
   int numberOfChicks = 0;
+  final mergeEffectSoundHelper = AudioHelper('audio/merge.wav');
 
   AnimalMergeGame() : super(gravity: Vector2(0, 5));
 
@@ -49,7 +50,6 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
       images.load('coin.png'),
       images.load('background.jpg'),
     ].wait;
-    await FlameAudio.audioCache.load('merge.wav');
 
     camera = CameraComponent.withFixedResolution(width: size.x, height: size.y);
     camera.viewfinder.zoom = worldZoomLevel;
@@ -100,7 +100,7 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
   }
 
   Future<void> playAnimalMergeSound() async {
-    FlameAudio.play('merge.wav');
+    mergeEffectSoundHelper.play();
   }
 
   void pickNextAnimal() {
