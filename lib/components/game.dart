@@ -99,7 +99,7 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
   }
 
   Future<void> playAnimalMergeSound() async {
-    Vibration.vibrate();
+    Vibration.vibrate(duration: 200, amplitude: 1);
   }
 
   void pickNextAnimal() {
