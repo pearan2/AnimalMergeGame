@@ -7,11 +7,11 @@ import 'package:animal_merge_game/components/wall.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/extensions.dart';
-import 'package:flame_audio/flame_audio.dart';
 
 import 'package:flame_forge2d/forge2d_game.dart';
 import 'package:flutter/material.dart' as mt;
 import 'package:flutter/services.dart';
+import 'package:vibration/vibration.dart';
 import 'package:xml/xml.dart';
 import 'package:xml/xpath.dart';
 
@@ -50,7 +50,6 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
       images.load('coin.png'),
       images.load('background.jpg'),
     ].wait;
-    // await FlameAudio.audioCache.load('merge.wav');
     camera = CameraComponent.withFixedResolution(width: size.x, height: size.y);
     camera.viewfinder.zoom = worldZoomLevel;
     camera.viewfinder.anchor = Anchor.center;
@@ -100,11 +99,7 @@ class AnimalMergeGame extends Forge2DGame with TapCallbacks {
   }
 
   Future<void> playAnimalMergeSound() async {
-    // if (numberOfMergeSoundEffectPlayings < 3) {
-    //   FlameAudio.play('merge.wav')
-    //       .then((_) => numberOfMergeSoundEffectPlayings--);
-    //   numberOfMergeSoundEffectPlayings++;
-    // }
+    Vibration.vibrate();
   }
 
   void pickNextAnimal() {
